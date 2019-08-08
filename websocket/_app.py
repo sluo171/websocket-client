@@ -87,7 +87,7 @@ class WebSocketApp(object):
                  on_cont_message=None,
                  keep_running=True, get_mask_key=None, cookie=None,
                  subprotocols=None,
-                 on_data=None):
+                 on_data=None, audio_queue=None):
         """
         url: websocket url.
         header: custom header for websocket handshake.
@@ -141,6 +141,7 @@ class WebSocketApp(object):
         self.last_ping_tm = 0
         self.last_pong_tm = 0
         self.subprotocols = subprotocols
+        self.audio_queue = audio_queue
 
     def send(self, data, opcode=ABNF.OPCODE_TEXT):
         """
